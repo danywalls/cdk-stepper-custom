@@ -25,19 +25,25 @@ export class AppComponent implements OnInit {
     console.log(this.formSections);
   }
 
-  get formSections(): AbstractControl {
-    return this.tariffStepForm.get('sections');
+  get formSections(): [] {
+    const a = this.tariffStepForm.get('sections');
+    console.log(a);
+    return [];
   }
 
   private _setupStepFormSections() {
     this.tariffStepForm = this._formBuilder.group({
       sections: this._formBuilder.array([
-        this._formBuilder.group({
-          player: ['', Validators.compose([Validators.required])],
-        }),
-        this._formBuilder.group({
-          position: ['', Validators.compose([Validators.required])],
-        }),
+        {
+          nameGroup: this._formBuilder.group({
+            player: ['', Validators.compose([Validators.required])],
+          }),
+        },
+        {
+          playerGroup: this._formBuilder.group({
+            position: ['', Validators.compose([Validators.required])],
+          }),
+        },
       ]),
     });
   }
