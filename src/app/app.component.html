@@ -1,0 +1,35 @@
+<form [formGroup]="tariffStepForm" (submit)="save()">
+  <app-stepper #cdkStepper formArrayName="sections">
+    <!-- <cdk-step *ngFor="let sectionForm of formSections; index as i;"
+    [formGroupName]="0" [stepControl]="formSections.get([0])> -->
+
+    <cdk-step formGroupName="0" [stepControl]="formSections.get([0])">
+      <ng-template cdkStepLabel>
+        <span>Please your name</span>
+      </ng-template>
+      <div class="container">
+        <label class="label">PlayerName</label>
+        <input formControlName="player" type="text" />
+        <button [disabled]="formSections.get([0]).invalid" cdkStepperNext>
+          Next
+        </button>
+      </div>
+    </cdk-step>
+    <cdk-step formGroupName="1" [stepControl]="formSections.get([1])">
+      <ng-template cdkStepLabel>
+        <span>Please your position</span>
+      </ng-template>
+      <div class="container">
+        <label class="label">position</label>
+        <input formControlName="position" type="text" />
+        <button [disabled]="formSections.get([1]).invalid" cdkStepperBack>
+          Back
+        </button>
+        <button [disabled]="formSections.get([1]).invalid" cdkStepperNext>
+          Next
+        </button>
+      </div>
+    </cdk-step>
+    -->
+  </app-stepper>
+</form>

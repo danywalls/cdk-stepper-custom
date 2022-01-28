@@ -1,0 +1,22 @@
+<div class="slider">
+  <div class="slider__header">
+    <span class="slider__header--left">{{ min }} {{ icon }}</span>
+    <span class="slider__header--center">{{ startStep }}{{ icon }}</span>
+    <span class="slider__header--rigth">{{ max }} {{ icon }}</span>
+  </div>
+  <div class="slider__content">
+    <input
+      (change)="changed()"
+      type="range"
+      [min]="min"
+      [max]="max"
+      class="slider__input"
+      [(ngModel)]="startStep"
+      list="rangelist"
+      step="1"
+    />
+    <datalist class="range__list" id="rangelist">
+      <option class="range__opt" *ngFor="let option of numRows()">|</option>
+    </datalist>
+  </div>
+</div>
